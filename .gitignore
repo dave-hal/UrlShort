@@ -31,3 +31,7 @@ build/
 .vscode/
 .idea
 target
+help.md
+HELP.md
+UrlShortening.iml
+shortUrl.iml

@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class UrlServiceTest {
 
-
     @Autowired
     private UrlService urlService;
 

@@ -27,7 +27,7 @@ class UrlServiceTest {
     }
 
     @Test
-    void returnsCorrectLongUrlTest(){ //test whether returns correct long Url - for entered short Url
+    void returnsCorrectLongUrlTest() { //test whether returns correct long Url - for entered short Url
         String longUrl = "https://hackernoon.com/why-software-testing-is-so-important-yp5932mm";
         String shortUrl = urlService.getShortUrl(longUrl);
         String result = urlService.getLongUrl(shortUrl);

@@ -38,6 +38,4 @@ public class UrlShorteningRestController {
         return urlService.getUrls();
     }
 
-//    TODO TESTS for controllers
-
 }

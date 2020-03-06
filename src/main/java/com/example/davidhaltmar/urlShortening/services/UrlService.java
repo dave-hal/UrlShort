@@ -19,12 +19,6 @@ public class UrlService {
 
     private static final Logger log = LoggerFactory.getLogger(UrlService.class);
 
-//        TODO nice to have:
-//         1) add longUrl validator (check URL whether it contains parentheses, slashes ...);
-//         2) check minimal length of receivedURL - otherwise display message "url is too short - unnecessary to shorten it" ???
-//         3) save URLs to file / db
-//         4) update formatting of list output - separate lines
-
     public String getShortUrl(String longUrl) { //received Long Url... try to find short Url ... otherwise generate short Url
         log.info("getShortUrl called with argument: \"" + longUrl + "\"");
 

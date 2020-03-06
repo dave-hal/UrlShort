@@ -24,14 +24,16 @@ public class ShortUrlGenerator {
 //        }
 //
 //        if (slashCount < 3) {
-//            // TODO what to do when 3 slashes are not found in URL - how to generate random String for path part of URL in such case ? display some error ?
+//            // Open Point: what to do when 3 slashes are not found in URL - how to generate random String for path part of URL in such case ? display some error ?
 //        }
 //        String schemeAndDomainSubstring = longUrl.substring(0, i + 1); //scheme and domain part of URL - substring of long URL
 //        String pathSubstring = longUrl.substring(i + 1, longUrlChars.length); //path part of URL - substring of long URL
 //        return schemeAndDomainSubstring + randomizeUrl(); //will return domain part of URL + randomized path part of URL
 //    }
 
-    /** generates random short URL - output is 6 characters long */
+    /**
+     * generates random short URL - output is 6 characters long
+     */
     public String randomizeUrl() {
         log.info("ShortUrlGenerator randomizing URL");
         String randomizedUrl = "";
@@ -40,8 +42,6 @@ public class ShortUrlGenerator {
             char[] charsToGenerateFrom = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
                     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
                     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-            // TODO 1: use numbers ? Number "1" can be misplaced with character "small L";
-            // TODO 2: as regular expression ???
 
             randomizedUrl += charsToGenerateFrom[(int) (Math.random() * charsToGenerateFrom.length)]; //generates random index to select from char array from allowed characters, adds selected char to String
         }

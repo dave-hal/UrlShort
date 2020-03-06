@@ -35,7 +35,7 @@ public class ShortUrlGenerator {
      * generates random short URL - output is 6 characters long
      */
     public String randomizeUrl() {
-        log.info("ShortUrlGenerator randomizing URL");
+        log.debug("ShortUrlGenerator randomizing URL");
         String randomizedUrl = "";
 
         for (int i = 0; i < 6; i++) { //for cycle to generate 6 chars long randomized URL
@@ -45,7 +45,7 @@ public class ShortUrlGenerator {
 
             randomizedUrl += charsToGenerateFrom[(int) (Math.random() * charsToGenerateFrom.length)]; //generates random index to select from char array from allowed characters, adds selected char to String
         }
-        log.info("ShortUrlGenerator generated randomized URL: \"" + randomizedUrl + "\"");
+        log.debug("ShortUrlGenerator generated randomized URL: \"" + randomizedUrl + "\"");
         return randomizedUrl;
     }
 

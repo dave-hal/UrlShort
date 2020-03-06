@@ -19,8 +19,9 @@ public class UrlService {
 
     private static final Logger log = LoggerFactory.getLogger(UrlService.class);
 
-    public String getShortUrl(String longUrl) { //received Long Url... try to find short Url ... otherwise generate short Url
-        log.info("getShortUrl called with argument: \"" + longUrl + "\"");
+    /** received Long Url... try to find short Url ... otherwise generate short Url */
+    public String getShortUrl(String longUrl) {
+        log.debug("getShortUrl called with argument: \"" + longUrl + "\"");
 
         String shortUrl = listOfUrls.findShortUrlIfExists(longUrl); //first checks whether URL and its short URL already exists
 
@@ -34,14 +35,14 @@ public class UrlService {
     }
 
     public String getLongUrl(String shortUrl) {
-        log.info("getLongUrl called with argument: " + shortUrl);
+        log.debug("getLongUrl called with argument: " + shortUrl);
         String longUrl = listOfUrls.findLongUrl(shortUrl);
 
         return (longUrl);
     }
 
     public HashMap<String, String> getUrls() {
-        log.info("listing all saved values");
+        log.debug("listing all saved values");
 
         return listOfUrls.listUrls();
     }

@@ -12,9 +12,13 @@ class ShortUrlGeneratorTest {
     @Autowired
     private ShortUrlGenerator shortUrlGenerator;
 
+    /** Tests whether randomizeUrl returns 6 chars long String */
     @Test
     void generateRandomCorrectUrlTest() {
+        //when
         String result = shortUrlGenerator.randomizeUrl();
-        assertEquals(6, result.length()); //Tests whether randomizeUrl returns is 6 chars long
+
+        //then
+        assertEquals(6, result.length());
     }
 }

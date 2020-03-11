@@ -36,17 +36,17 @@ public class ShortUrlGenerator {
      */
     public String randomizeUrl() {
         log.debug("ShortUrlGenerator randomizing URL");
-        String randomizedUrl = "";
+        StringBuilder randomizedUrlBuilder = new StringBuilder();
 
         for (int i = 0; i < 6; i++) { //for cycle to generate 6 chars long randomized URL
             char[] charsToGenerateFrom = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
                     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
                     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-            randomizedUrl += charsToGenerateFrom[(int) (Math.random() * charsToGenerateFrom.length)]; //generates random index to select from char array from allowed characters, adds selected char to String
+            randomizedUrlBuilder.append(charsToGenerateFrom[(int) (Math.random() * charsToGenerateFrom.length)]); //generates random index to select from char array from allowed characters, adds selected char to String
         }
-        log.debug("ShortUrlGenerator generated randomized URL: \"" + randomizedUrl + "\"");
-        return randomizedUrl;
+        log.debug("ShortUrlGenerator generated randomized URL: \"" + randomizedUrlBuilder + "\"");
+        return randomizedUrlBuilder.toString();
     }
 
 }

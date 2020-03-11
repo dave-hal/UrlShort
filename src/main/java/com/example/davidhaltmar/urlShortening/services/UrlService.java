@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Service
@@ -26,7 +25,7 @@ public class UrlService {
 
         String shortUrl = listOfUrls.findShortUrlIfExists(longUrl); //first checks whether URL and its short URL already exists
 
-        if (shortUrl.equals("")) { // if short URL wasn't found, generate short URL and add URL+short URL
+        if (shortUrl == null) { // if short URL wasn't found, generate short URL and add URL+short URL
             do {
                 shortUrl = shortUrlGenerator.randomizeUrl();
             } while (!listOfUrls.checkShortUrlUniqueness(shortUrl)); // if generated short URL isn't unique - repeat random generator

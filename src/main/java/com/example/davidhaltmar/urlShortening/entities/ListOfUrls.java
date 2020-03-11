@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -13,13 +12,7 @@ public class ListOfUrls {
 
     private static final Logger log = LoggerFactory.getLogger(ListOfUrls.class);
 
-            private Map<String, String> list;
-//    private java.util.concurrent.ConcurrentMap list;
-
-    public ListOfUrls(HashMap<String, String> list) {
-//        this.list = new ConcurrentHashMap();
-    this.list = list;
-    }
+    private Map<String, String> list = new ConcurrentHashMap();
 
     /**
      * saves Url - as combination of short Url (key) and long Url (value)
@@ -31,11 +24,10 @@ public class ListOfUrls {
     }
 
     /**
-     * returns short Url for received long URL - if it already exists; else returns empty String for short Url (and it means that short Url has to be generated)
+     * @returns short Url for received long URL - if it already exists; else returns null for short Url (and it means that short Url has to be generated)
      */
     public String findShortUrlIfExists(String longUrl) {
         log.debug("findShortUrlIfExists called with argument: \"" + longUrl + "\"");
-        String shortUrl = "";
 
         for (String url : list.keySet()) {
             if (list.get(url).equals(longUrl)) {
@@ -43,7 +35,8 @@ public class ListOfUrls {
                 return url;
             }
         }
-        return shortUrl;
+
+        return null;
     }
 
     /**

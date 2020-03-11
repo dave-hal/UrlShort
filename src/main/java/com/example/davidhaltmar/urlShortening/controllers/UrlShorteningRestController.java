@@ -2,11 +2,12 @@ package com.example.davidhaltmar.urlShortening.controllers;
 
 import com.example.davidhaltmar.urlShortening.services.UrlService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -27,8 +28,11 @@ public class UrlShorteningRestController {
      * mapping for obtaining long Url (short Url (key) as input)
      */
     @GetMapping("/getlong")
-    public String getLongUrl(@RequestParam(required = true) String url) {
-        return urlService.getLongUrl(url);
+    public ResponseEntity<String> getLongUrl(@RequestParam(required = true) String url) {
+        return ResponseEntity
+                    .status(HttpStatus.MOVED_PERMANENTLY)
+                    .header("Location", urlService.getLongUrl(url))
+                    .build();
     }
 
     /**

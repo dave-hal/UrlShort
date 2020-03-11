@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class UrlShorteningRestController {
@@ -34,7 +35,7 @@ public class UrlShorteningRestController {
      * mapping for obtaining list of Urls (short URL : long URL)
      */
     @GetMapping("/geturls")
-    public HashMap<String, String> urls() {
+    public Map<String, String> urls() {
         return urlService.getUrls();
     }
 

@@ -13,7 +13,10 @@ Returns list of combinations: short URL - URL.
 
 # How to develop/start
 
-How to run using maven ??? which directory ???
+How to run using maven ???
+which directory ???
+
+
 
 
 
